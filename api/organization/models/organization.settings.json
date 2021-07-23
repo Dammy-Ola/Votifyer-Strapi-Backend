@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "organizations",
+  "info": {
+    "name": "organization",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "imageUrl": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "users": {
+      "via": "organizations",
+      "plugin": "users-permissions",
+      "collection": "user",
+      "dominant": true
+    },
+    "votes": {
+      "via": "organization",
+      "collection": "vote"
+    },
+    "events": {
+      "via": "organization",
+      "collection": "events"
+    },
+    "categories": {
+      "via": "organization",
+      "collection": "categories"
+    }
+  }
+}

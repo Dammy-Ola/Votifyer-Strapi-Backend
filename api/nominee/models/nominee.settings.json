@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "nominees",
+  "info": {
+    "name": "nominee",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "categories": {
+      "via": "nominees",
+      "collection": "categories"
+    },
+    "imageUrl": {
+      "type": "string"
+    },
+    "votes": {
+      "via": "nominee",
+      "collection": "vote"
+    }
+  }
+}

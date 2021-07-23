@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "name": "events",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "organization": {
+      "model": "organization",
+      "via": "events"
+    },
+    "votes": {
+      "collection": "vote",
+      "via": "event"
+    },
+    "categories": {
+      "via": "event",
+      "collection": "categories"
+    },
+    "users": {
+      "via": "events",
+      "plugin": "users-permissions",
+      "collection": "user",
+      "dominant": true
+    }
+  }
+}

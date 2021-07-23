@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "votes",
+  "info": {
+    "name": "vote",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "category": {
+      "via": "votes",
+      "model": "categories"
+    },
+    "date": {
+      "type": "datetime",
+      "required": true
+    },
+    "organization": {
+      "model": "organization",
+      "via": "votes"
+    },
+    "nominee": {
+      "via": "votes",
+      "model": "nominee"
+    },
+    "event": {
+      "via": "votes",
+      "model": "events"
+    }
+  }
+}

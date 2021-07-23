@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categories",
+  "info": {
+    "name": "categories",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "nominees": {
+      "via": "categories",
+      "collection": "nominee",
+      "dominant": true
+    },
+    "votes": {
+      "via": "category",
+      "collection": "vote"
+    },
+    "event": {
+      "via": "categories",
+      "model": "events"
+    },
+    "organization": {
+      "model": "organization",
+      "via": "categories"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    }
+  }
+}
